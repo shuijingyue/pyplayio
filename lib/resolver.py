@@ -1,8 +1,8 @@
 import re
 
+object_pattern = re.compile(r'L.*;')
 simple_array_pattern = re.compile(r'\[B|\[D|\[I|\[J|\[S|\[Z|\[C')
 object_array_pattern = re.compile(r'\[L.*;')
-object_pattern = re.compile(r'L.*;')
 
 def class_name(str):
     return re.sub(r'[/$]', '.', re.search(r'(?<=L).*(?=;->)', str).group(0))
